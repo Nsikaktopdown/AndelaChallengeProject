@@ -63,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
 
+
+        //checking for network connectivity
         if (!isNetworkAvailable()) {
             Snackbar snackbar = Snackbar
                     .make(coordinatorLayout, "No Network connection", Snackbar.LENGTH_LONG)

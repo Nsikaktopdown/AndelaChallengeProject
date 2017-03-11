@@ -5,10 +5,11 @@ android {
     buildToolsVersion "25.0.1"
     defaultConfig {
         applicationId "ng.codeimpact.andelachallengeproject"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -17,6 +18,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] } }
 }
 
 dependencies {
@@ -37,8 +39,10 @@ dependencies {
     //CircleImagevIew
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.android.support:support-v4:19.1.0'
+    compile 'com.android.support:support-v4:25.0.1'
 
+    compile 'me.saket:better-link-movement-method:1.2'
+    compile 'com.android.support:customtabs:25.0.1'
 
     testCompile 'junit:junit:4.12'
 }

@@ -14,7 +14,9 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import ng.codeimpact.andelachallengeproject.R;
+import ng.codeimpact.andelachallengeproject.UserDetails;
 import ng.codeimpact.andelachallengeproject.model.User;
 
 /**
@@ -23,16 +25,16 @@ import ng.codeimpact.andelachallengeproject.model.User;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> {
 
-    private List<User> moviesList;
+    private List<User> userList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        ImageView user_profile_avatar;
+        CircleImageView user_profile_avatar;
         TextView username, user_state;
 
 
         public MyViewHolder(View view) {
             super(view);
-            user_profile_avatar = (ImageView) view.findViewById(R.id.profile_image);
+            user_profile_avatar = (CircleImageView) view.findViewById(R.id.profile_image);
             username = (TextView) view.findViewById(R.id.user_name);
             user_state = (TextView) view.findViewById(R.id.userstate);
 
@@ -40,8 +42,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
     }
 
 
-    public UserAdapter(List<User> moviesList) {
-        this.moviesList = moviesList;
+    public UserAdapter(List<User> userList) {
+        this.userList = userList;
     }
 
     @Override
@@ -54,7 +56,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        User user = moviesList.get(position);
+        final User user = userList.get(position);
 
         holder.username.setText(user.getLogin());
         holder.user_state.setText("Lagos");
@@ -65,17 +67,13 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
         Glide.with(context).load(user.getAvatarUrl()).into(holder.user_profile_avatar);
 
 
-       /* Context context = holder.txtItem.getContext();
-        ChronicaProRegularHelper.applyFont(context, holder.txtItem);
-        holder.imgItem.setImageResource(item.getImage());
-        holder.txtItem.setText(item.getTitle());
-*/
-
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Context context = holder.itemView.getContext();
-
+                Intent intent = new Intent(context, UserDetails.class);
+                intent.putExtra("user", user);
+                context.startActivity(intent);
 
             }
         });
@@ -85,6 +83,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
 
     @Override
     public int getItemCount() {
-        return moviesList.size();
+        return userList.size();
     }
 }
