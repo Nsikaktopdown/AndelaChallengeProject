@@ -2,5 +2,9 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#F9b202</color>
+
+    <color name="input_border">#E0E0E0</color>
+    <color name="additional_text_colour">#B6C1C7</color>
+    <color name="text_black">#111111</color>
 </resources>
