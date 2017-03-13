@@ -104,6 +104,6 @@ public interface RestApiService {
 
 ## Authors
 
-* **Nsikak Thompson** - *Initial work* - [PurpleBooth](https://github.com/Nsikaktopdown)
+* **Nsikak Thompson** - *Initial work* - (https://github.com/Nsikaktopdown)
 
 
