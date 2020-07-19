@@ -87,7 +87,7 @@ public interface RestApiService {
 ### you will have to create your restclient object with your services.
 
     ```
- public RestApiBuilder() {
+    public RestApiBuilder() {
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
